@@ -3,6 +3,6 @@ Spring boot application that uses Azure Redis service to cache records of studen
 
 Before running the application in local:
 
-Spin up the docker container so that postgress server instance is running in the backgroud.
+Spin up the docker container so that a postgress server instance is running in the backgroud.
 The image will also create a database table of students with some records in it.
    
