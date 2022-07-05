@@ -23,7 +23,7 @@ Redis CLI:
 Azure offers a way to interact with the cache server using the redis cli from the portal. 
 Basic useful commands to check if data is being stored in the cache are:
   1. scan 0 - This will return all the different keys that are stored in the cache
-  2. mget <key> - this will display the data associated with the key given
+  2. mget [key] - this will display the data associated with the key given
 
 Resources Used
 
