@@ -19,6 +19,12 @@ Additional Notes:
 
 -When caching a list of students for the getAllStudents method, currently the cache will not be aware of any new student added to the database. Possoble solution is to have an expiration timeout to have this evicted after some time. Or evict the key once we add/delete a new student.
 
+Redis CLI:
+Azure offers a way to interact with the cache server using the redis cli from the portal. 
+Basic useful commands to check if data is being stored in the cache are:
+  1. scan 0 - This will return all the different keys that are stored in the cache
+  2. mget <key> - this will display the data associated with the key given
+
 Resources Used
 
 https://blog.katastros.com/a?ID=00700-3984d39a-992d-4b8c-b05f-512127bad5f9
