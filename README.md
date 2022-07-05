@@ -16,6 +16,7 @@ Steps taken to interact with Redis Service:
 Additional Notes:
 
 -Tried using annotation based caching but these were not caching the records to the cache. The records would always come directly from postgress.
+
 -When caching a list of students for the getAllStudents method, currently the cache will not be aware of any new student added to the database. Possoble solution is to have an expiration timeout to have this evicted after some time. Or evict the key once we add/delete a new student.
 
 Resources Used
