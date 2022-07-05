@@ -13,7 +13,8 @@ Steps taken to interact with Redis Service:
   4. Service classes are the main players dealing with the caching directly before hitting the database.
      They use the RedisTemplate configured at bootup to save/retrieve records from the cache service.
 
-Additional Notes
+Additional Notes:
+
 -Tried using annotation based caching but these were not caching the records to the cache. The records would always come directly from postgress.
 -When caching a list of students for the getAllStudents method, currently the cache will not be aware of any new student added to the database. Possoble solution is to have an expiration timeout to have this evicted after some time. Or evict the key once we add/delete a new student.
 
