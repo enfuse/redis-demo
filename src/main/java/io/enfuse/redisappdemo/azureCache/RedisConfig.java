@@ -1,8 +1,5 @@
 package io.enfuse.redisappdemo.azureCache;
 
-
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
-import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,22 +8,9 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-
-
 @Configuration
-@AutoConfigureAfter(RedisAutoConfiguration.class)
 @EnableCaching
 public class RedisConfig {
-
-//    @Autowired
-//    private CacheManager cacheManager;
-//
-//    @Value("${spring.redis.host}")
-//    private String redisHost;
-//
-//    @Value("${spring.redis.port}")
-//    private int redisPort;
-
     @Bean
     public RedisTemplate redisTemplate(LettuceConnectionFactory redisConnectionFactory) {
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
@@ -35,18 +19,4 @@ public class RedisConfig {
         template.setConnectionFactory(redisConnectionFactory);
         return template;
     }
-
-//    @Bean
-//    public CacheManager cacheManager(RedisConnectionFactory factory) {
-//        RedisCacheConfiguration config = RedisCacheConfiguration
-//                .defaultCacheConfig()
-//                .serializeKeysWith(
-//                        RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
-//                .serializeValuesWith(RedisSerializationContext.SerializationPair
-//                        .fromSerializer(new GenericJackson2JsonRedisSerializer()));
-//        RedisCacheManager redisCacheManager = RedisCacheManager.builder(factory).cacheDefaults(config)
-//                .build();
-//        return redisCacheManager;
-//    }
-
 }
