@@ -25,10 +25,16 @@ public class AzureRedisController {
     }
 
     @GetMapping(value = "/students/{id}")
-    public ResponseEntity<Object> getCustomerById(@PathVariable("id") String id) {
+    public ResponseEntity<Student> getCustomerById(@PathVariable("id") Long id) {
 
         Student student = this.studentService.findById(id);
         return ResponseEntity.ok(student);
+    }
+
+    @PatchMapping(value="/students")
+    public ResponseEntity updateStudent(@RequestBody Student student ){
+        Student updated = studentService.updateStudent(student);
+        return ResponseEntity.ok(updated);
     }
 }
 
