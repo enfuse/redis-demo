@@ -11,10 +11,10 @@ The image will also create a database table of **students** with some sample rec
    
 **Steps taken to interact with Redis Service:**
   1. Inside application.properties, configure all the settings to talk to a Azure Redis Service instance
-  2. Provide a RedisTemplate bean to take care of serialization of objects before caching them. Need to provide both key and value serializers.
-     Redis will save all keys as strings so we are using a simple StringSerializer for the keys and GenericJackson2JsonRedisSerializer for the values.
-  4. Service classes are the main components dealing with the caching directly before hitting the database.
-     They use the RedisTemplate configured at bootup to save/retrieve records from the cache service.
+  2. Provide a RedisTemplate bean to take care of serialization of objects before caching them. We need to provide both key and value serializers.
+     Redis will save all keys as strings so we are using a simple StringSerializer for the keys and GenericJackson2JsonRedisSerializer for our Student   objects.
+  4. Service classes are the components dealing with the caching directly when reading from the database.
+     We use annotation based caching that allows us to store records based on keys, as well as evicting those records when we update the database.
 
 ## Additional Notes:
 
