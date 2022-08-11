@@ -12,28 +12,20 @@ public class Student implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     String firstName;
-
-    public Student() {
-
-    }
-
+    public Student() {}
     public Student(Long id, String firstName) {
         this.id = id;
         this.firstName = firstName;
     }
-
     public Long getId() {
         return id;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
     public void setId(Long id) {
         this.id = id;
     }

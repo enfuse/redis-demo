@@ -17,7 +17,6 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService{
     @Autowired
     StudentRepository studentRepository;
-
     @Cacheable(cacheNames = "students")
     @Override
     public List<Student> findAll() {
